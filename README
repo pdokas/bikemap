@@ -1,0 +1,7 @@
+While Apple and Google have been fighting it out in the courts, Apple’s Maps app has been languishing. Unfortunately, this means that biking directions haven’t yet made an appearance. And as I’m biking more and more, I find myself cursing that lack more and more.
+
+So here’s a very simple tool to provide access to the bike directions available on maps.google.com in a quick package on iOS.
+
+TODO:
+ - Turns out Safari intercepts location = http://maps.google.com urls and shoves them into Maps. Work around this.
+ - Make a homescreen icon
