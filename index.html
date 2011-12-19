@@ -4,27 +4,68 @@
 	<meta charset="utf-8">
 	<link rel="dns-prefetch" href="http://maps.google.com">
 
-	<title></title>
+	<title>🚲</title>
 	<meta name="author" content="Phil Dokas, phil@jetless.org">
-	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<meta name="apple-mobile-web-app-capable" content="yes">
 	<style>
+		body {
+			background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAAAAACpleexAAADG0lEQVQYGQXBCWLYNgwEQP3/r00sAnsBlNOZ56dGFMkQ7Zxd4XIijrkuR0dlPnlVCGzZXdftConRKzBEVDsePZtaGhL2TyC37y7jt49/ejbtIw6frVi7di/QBBfqWE6fgrpaJuMHRAc9iTbm4sfFtIg53CzV55B51A54h183lQbteRs71z9/ebJ3zoRPOuYlv1CvrK4zBJj6xuzRaI6bT98Cxqo+FwzL6x3v+4ETkv2FKjxM0529cBifMyZJrJZyvmr5CH5+7svT+gw3ucPhN01yw/nXH8Ye6ffZCXrEePkHGgn1M1A+cxfodS8nT3aqO0tX2ILy9d/pmtzWimmK6vOoZxblpXUJOq/QE2xb3yFNYsYP0Tb4Y/GslewvtT2aBWZ8XrNX54GNtkgxd7ou1Po9LGxvqSDWd/w+b/7xSpTe9h2qa8bYAqyPHnSm6vcJ3zH7u4VBhalXXWbBUmNVuSX70b/z01kVl5/j3niz12kXQPWv+p15jlduyK+gMd9eQ47WvyV37jX68nHPCLA7YNtzHQP87BDpMia5epb6Xanr3eL12OtJ4pYoEntfqfYZaADtkMbC2sPdJuJ2vZBIWf2ExoGvuF2kdVSCiDNlg2RzbD/5qYoyNfF1sni/robOG9rSUYODp1cevbhtftJf+cBUM5+Nm9YkyvfsiMimcGU5YFzEOz2tul6GL8HndLualZw/ARn9U1fFVK1/CSsL6PmIk4Y9LVf2NT5TMwyaEwXdNJ6QNPCfdSpY17G/iKZJd/oQGLwP5FFZuqLw+07f2jS77SghI27zmZyPQmXnbsUDIoff3TAes3MQ50nTfcqEFzbxa+OKjUq/epk6s/Kzr4o4+i/woafyLZQ7vDZZpk39q4dL0kd/LfQaPEv9gOH8O+VXkM9HPFz7t9Iev4PGe87rEWV8ZGzLE+h5+8vM/jjjiPP23w6qUKcaVivu1D4U/2t/+mOOq1TUMgbjxRGuU9fSky5X4kO2XGZ7EJPxvO+F/167+T3yrYvYXPjMbHdggCqdVBM+sfSAYtfM2wwqu2fxFpg5+hSl5Mzs/yIZBzgVxqEgAAAAAElFTkSuQmCC);
+			font-family: 'helvetica neue';
+			text-align: center;
+			margin: 0;
+			padding: 0 0.5em;
+			text-rendering: optimizeLegibility;
+		}
+		
+		h1 {
+			text-shadow: 1px 1px 0 white;
+			margin: 0.667em 0;
+		}
+		
+		p {
+			text-align: left;
+			padding-bottom: 22px;
+		}
+		
 		input {
+			-webkit-appearance: none;
+			width: 100%;
+			
 			-webkit-box-sizing: border-box;
 			box-sizing: border-box;
+			border: 1px solid #e8e8e8;
+			
+			box-shadow: inset 0 1px 0 0 rgba(0,0,0, 0.333);
+			
+			font-size: 1.25em;
+			margin-bottom: 0.75em;
+		}
+		
+		input[type=submit] {
+			background: -webkit-linear-gradient(top, rgba(255,255,255,0.25) 0%, rgba(0,0,0,0.25) 100%);
+			background: linear-gradient(top, rgba(255,255,255,0.25) 0%, rgba(0,0,0,0.25) 100%);
+			border: 1px solid rgba(0,0,0, 0.333);
+			border-top: 0;
+			box-shadow: inset 0 1px 0 0 rgba(0,0,0, 0.333), 0 1px 0 0 white;
 			font-size: 1.5em;
-			margin-bottom: 0.5em;
-			width: 100%;
 		}
 	</style>
 </head>
 
 <body>
+	<h1>Bike There!</h1>
+	
 	<form onsubmit="return recombobulate();">
-		<input type="text" id="from" placeholder="from…">
-		<input type="text" id="to" placeholder="…to">
+		<input type="text" id="from" placeholder="from">
+		<input type="text" id="to" placeholder="to">
 		
 		<input type="submit" id="go" value="🚲 🚲 🚲 🚲 🚲 🚲 🚲 🚲 🚲">
 	</form>
+	
+	<p>
+		Apple and Google haven’t been getting along well recently. Unfortunately, this has kept Apple’s Maps app from keeping up with the Joneses. And their sweet bikes. Use this simple page to get handy bike directions straight from Google Maps!
+	</p>
 	
 	<script>
 		var d   = document,
@@ -33,6 +74,8 @@
 			p   = '+',
 			w   = /\s/g,
 			url = 'http://maps.google.com/maps?dirflg=b&saddr=';
+			
+		window.top.scrollTo(0, 1);
         
 		function recombobulate() {
 			location = url+fr.value.replace(w,p)+'&daddr='+to.value.replace(w,p);
