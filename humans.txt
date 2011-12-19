@@ -1,0 +1,10 @@
+/* the humans responsible & colophon                                          *
+ * humanstxt.org                                                              *
+ ******************************************************************************/
+
+/** Brought to you by **/
+  Phil Dokas - programming
+          Web: jetless.org
+      Twitter: twitter.com/pdokas
+  
+  Apple & Google - bickering

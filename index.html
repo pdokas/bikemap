@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<link rel="dns-prefetch" href="http://maps.google.com">
+
+	<title></title>
+	<meta name="author" content="Phil Dokas, phil@jetless.org">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<style>
+		input {
+			-webkit-box-sizing: border-box;
+			box-sizing: border-box;
+			font-size: 1.5em;
+			margin-bottom: 0.5em;
+			width: 100%;
+		}
+	</style>
+</head>
+
+<body>
+	<form onsubmit="return recombobulate();">
+		<input type="text" id="from" placeholder="from…">
+		<input type="text" id="to" placeholder="…to">
+		
+		<input type="submit" id="go" value="🚲 🚲 🚲 🚲 🚲 🚲 🚲 🚲 🚲">
+	</form>
+	
+	<script>
+		var d   = document,
+			to  = d.getElementById('to'),
+			fr  = d.getElementById('from'),
+			p   = '+',
+			w   = /\s/g,
+			url = 'http://maps.google.com/maps?dirflg=b&saddr=';
+        
+		function recombobulate() {
+			location = url+fr.value.replace(w,p)+'&daddr='+to.value.replace(w,p);
+			return false;
+		} 
+	</script>
+</body>
+</html>
